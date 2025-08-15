@@ -1,0 +1,20 @@
+{
+    "name": "@conger/twitch",
+    "version": "0.1.0",
+    "license": "MIT",
+    "fmt": {
+        "useTabs": true
+    },
+    "exports": {
+        ".": "./src/mod.ts",
+        "./endpoints": "./src/endpoints.ts",
+        "./subscriptions": "./src/subscriptions.ts"
+    },
+    "publish": {
+        "include": [
+            "LICENSE",
+            "deno.json",
+            "src/**/*.ts"
+        ]
+    }
+}
