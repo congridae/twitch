@@ -1,12 +1,13 @@
 {
     "name": "@conger/twitch",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "fmt": {
         "useTabs": true
     },
     "exports": {
         ".": "./src/mod.ts",
+        "./auth": "./src/auth.ts",
         "./endpoints": "./src/endpoints.ts",
         "./subscriptions": "./src/subscriptions.ts"
     },
