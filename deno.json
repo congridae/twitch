@@ -1,6 +1,6 @@
 {
     "name": "@conger/twitch",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "fmt": {
         "useTabs": true

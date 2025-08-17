@@ -169,11 +169,24 @@ export class EventSub {
 	) {
 		const unlock = await this.mutex.lock();
 		try {
-			const id = await this.subscribe_(
-				subscription.type,
-				subscription.version,
-				condition,
-			);
+			if (this.conn == undefined) return; // disconnected
+			let id;
+			try {
+				id = await this.subscribe_(
+					subscription.type,
+					subscription.version,
+					condition,
+				);
+			} catch (err) {
+				if (
+					err instanceof TwitchError &&
+					err.message ===
+						"400 Bad Request: websocket transport session does not exist or has already disconnected"
+				) {
+					return;
+				}
+				throw err;
+			}
 			this.notify.set(id, callback as (event: unknown) => void);
 			this.resub.push({
 				type: subscription.type,
